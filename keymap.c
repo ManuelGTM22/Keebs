@@ -1,18 +1,5 @@
 #include QMK_KEYBOARD_H
 
-/*// Left-hand home row mods
-#define HOME_A LGUI_T(KC_A)
-#define HOME_R LALT_T(KC_R)
-#define HOME_S LCTL_T(KC_S)
-#define HOME_T LSFT_T(KC_T)
-
-// Right-hand home row mods
-#define HOME_N RSFT_T(KC_N)
-#define HOME_E RCTL_T(KC_E)
-#define HOME_I LALT_T(KC_I)
-#define HOME_O RGUI_T(KC_O)
-*/
-
 enum layer_number {
   _COLEMAK_DH = 0,
   _BAJA,
@@ -197,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_WH_U, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,                   KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_R, XXXXXXX, XXXXXXX,
+  XXXXXXX, KC_MS_ACCEL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,                   KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_R, KC_MS_ACCEL0, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _MAIL, _FLASH, KC_SLEP, KC_PWR, XXXXXXX,
                              _______, _______, _______, _______, _______,  _______, _______, _______
   )
@@ -313,7 +300,6 @@ bool oled_task_user(void) {
           oled_set_cursor(2,3);
   
           break;
-        
     }
 
   }else{
@@ -323,5 +309,6 @@ bool oled_task_user(void) {
 }
 
 #endif // OLED_ENABLE
+
 
 
